@@ -129,4 +129,23 @@ public class AviaSoulsTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldSearchZero() {
+        TicketTimeComparator timeComparator = new TicketTimeComparator();
+
+        repo.add(ticket1);
+        repo.add(ticket2);
+        repo.add(ticket3);
+        repo.add(ticket4);
+        repo.add(ticket5);
+        repo.add(ticket6);
+        repo.add(ticket7);
+        repo.add(ticket8);
+        repo.add(ticket9);
+
+        Ticket[] expected = {};
+        Ticket[] actual = repo.searchAndSortBy("Moscow", "Volgograd", timeComparator);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
